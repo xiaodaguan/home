@@ -6,5 +6,19 @@
 </head>
 <body>
 <h1 th:text="${subTitle}">Hello World</h1>
+<div>
+    <ul th:each="model : ${models}">
+        <p th:text="${model.getKey()}">
+        <ul th:each="link:${model.getValue()}">
+            <li>
+                <a th:href="${link.getUrl()}" th:text="${link.getTitle()}"/>
+                <a th:href="@{'/delLink/'+${link.getId()}}">删除</a>
+            </li>
+        </ul>
+    </ul>
+    <a href="/create">增加一个</a>
+</div>
+
+
 </body>
 </html>

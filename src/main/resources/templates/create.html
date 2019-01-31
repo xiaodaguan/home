@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--发表文章信息表单-->
+<div th:fragment="main_content">
+    <form action="/addlink" method="post">
+        标题:<input type="text" name="title"><br/><br/>
+        传送门:<input type="text" name="url"><br/><br/>
+        标签:<input type="text" name="tag"><br/><br/>
+        <input type="submit" value="确定">
+    </form>
+
+</div>
+</html>
