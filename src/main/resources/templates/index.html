@@ -32,7 +32,7 @@
 <ul th:each="model : ${models}">
     <h4 th:text="${model.getKey()}"></h4>
     <li class="span3" th:each="link:${model.getValue()}">
-        <a th:href="${link.getUrl()}" th:text="${link.getTitle()}"/>&nbsp;&nbsp;&nbsp;&nbsp;<a th:href="@{'/delLink/'+${link.getTitle()}}">删除</a>
+        <a th:href="${link.getUrl()}" th:text="${link.getTitle()}"/>&nbsp;&nbsp;&nbsp;&nbsp;<a th:href="@{'/delLink/'+${link.getTitle()}}">𝙓</a>
     </li>
 </ul>
 
