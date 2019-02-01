@@ -3,22 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>GXD's HOME</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
-<h1 th:text="${subTitle}">Hello World</h1>
-<div>
-    <ul th:each="model : ${models}">
-        <p th:text="${model.getKey()}">
-        <ul th:each="link:${model.getValue()}">
-            <li>
-                <a th:href="${link.getUrl()}" th:text="${link.getTitle()}"/>
-                <a th:href="@{'/delLink/'+${link.getTitle()}}">删除</a>
-            </li>
-        </ul>
-    </ul>
-    <a href="/create">增加一个</a>
+
+<!-- TITLE -->
+<div class="hero-unit">
+    <h2 th:text="${subTitle}"></h2>
 </div>
 
+<!-- add -->
+<div>
+    <div th:fragment="main_content">
+        <form action="/addlink" method="post">
+            Name:<input type="text" name="title">&nbsp;
+            Url:<input type="text" name="url">&nbsp;
+            Tag:<input type="text" name="tag">&nbsp;
+            <input type="submit" value="添加">
+        </form>
 
+    </div>
+    <!--<button onclick="this.open('/create')">增加一个</button>-->
+</div>
+
+<!-- list -->
+<ul th:each="model : ${models}">
+    <h4 th:text="${model.getKey()}"></h4>
+    <li class="span3" th:each="link:${model.getValue()}">
+        <a th:href="${link.getUrl()}" th:text="${link.getTitle()}"/>&nbsp;&nbsp;&nbsp;&nbsp;<a th:href="@{'/delLink/'+${link.getTitle()}}">删除</a>
+    </li>
+</ul>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

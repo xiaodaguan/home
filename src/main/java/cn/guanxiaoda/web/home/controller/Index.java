@@ -3,6 +3,7 @@ package cn.guanxiaoda.web.home.controller;
 import cn.guanxiaoda.web.home.model.LinkModel;
 import cn.guanxiaoda.web.home.service.LinkService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -38,13 +39,11 @@ public class Index {
 
     @PostMapping("/addlink")
     public String addLink(@RequestParam String title, @RequestParam String url, @RequestParam String tag) {
+        if (StringUtils.isEmpty(title)) {
+            return "redirect:/";
+        }
         service.insert(new LinkModel(title, url, tag));
         return "redirect:/";
-    }
-
-    @GetMapping("/create")
-    public String create() {
-        return "create";
     }
 
     @GetMapping("/delLink/{title}")
