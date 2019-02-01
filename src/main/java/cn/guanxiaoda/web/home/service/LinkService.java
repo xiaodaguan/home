@@ -26,26 +26,26 @@ public class LinkService {
     @Autowired
     private LinkMapper dao;
 
-    public boolean insert(LinkModel model) {
-        return dao.insert(model) > 0;
+
+    public void insert(LinkModel model) {
+        dao.save(model);
     }
 
-    public LinkModel select(int id) {
-        return dao.select(id);
+    public LinkModel select(String title) {
+        return null;
     }
 
     public Map<String, List<LinkModel>> selectAll() {
-        List<LinkModel> list = dao.selectAll();
+        List<LinkModel> list = dao.findAll();
         Map<String, List<LinkModel>> models = list.stream().collect(Collectors.groupingBy(m -> Optional.ofNullable(m.getTag()).filter(StringUtils::isNotEmpty).orElse("未分类")));
 
         return models;
     }
 
-    public boolean updateValue(LinkModel model) {
-        return dao.updateValue(model) > 0;
+    public void updateValue(LinkModel model) {
     }
 
-    public boolean delete(Integer id) {
-        return dao.delete(id) > 0;
+    public void delete(String title) {
+        dao.remove(new LinkModel(title));
     }
 }

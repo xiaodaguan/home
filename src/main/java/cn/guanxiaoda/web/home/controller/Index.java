@@ -38,11 +38,7 @@ public class Index {
 
     @PostMapping("/addlink")
     public String addLink(@RequestParam String title, @RequestParam String url, @RequestParam String tag) {
-        if (service.insert(new LinkModel(title, url, tag))) {
-            log.info("add succeed");
-        } else {
-            log.warn("add failed");
-        }
+        service.insert(new LinkModel(title, url, tag));
         return "redirect:/";
     }
 
@@ -51,9 +47,9 @@ public class Index {
         return "create";
     }
 
-    @GetMapping("/delLink/{id}")
-    public String delLink(@PathVariable int id){
-        service.delete(id);
+    @GetMapping("/delLink/{title}")
+    public String delLink(@PathVariable String title) {
+        service.delete(title);
         return "redirect:/";
     }
 

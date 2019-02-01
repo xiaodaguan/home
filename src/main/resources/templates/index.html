@@ -12,7 +12,7 @@
         <ul th:each="link:${model.getValue()}">
             <li>
                 <a th:href="${link.getUrl()}" th:text="${link.getTitle()}"/>
-                <a th:href="@{'/delLink/'+${link.getId()}}">删除</a>
+                <a th:href="@{'/delLink/'+${link.getTitle()}}">删除</a>
             </li>
         </ul>
     </ul>
