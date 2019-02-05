@@ -1,7 +1,7 @@
 package cn.guanxiaoda.web.home.service;
 
 
-import cn.guanxiaoda.web.home.mapper.LinkMapper;
+import cn.guanxiaoda.web.home.mapper.ILinkMapper;
 import cn.guanxiaoda.web.home.model.LinkModel;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,12 @@ import java.util.stream.Collectors;
  * @author guanxiaoda
  * @date 2019-01-31
  */
-
 @Service
 @Transactional(propagation = Propagation.NOT_SUPPORTED)
 public class LinkService {
 
     @Autowired
-    private LinkMapper dao;
+    private ILinkMapper dao;
 
 
     public void insert(LinkModel model) {

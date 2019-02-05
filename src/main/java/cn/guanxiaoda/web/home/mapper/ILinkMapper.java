@@ -9,7 +9,7 @@ import java.util.List;
  * @author guanxiaoda
  * @date 2019-01-31
  */
-public interface LinkMapper  {
+public interface ILinkMapper {
 
     void save(LinkModel item);
 

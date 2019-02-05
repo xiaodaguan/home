@@ -4,7 +4,6 @@ import cn.guanxiaoda.web.home.model.LinkModel;
 import com.mongodb.client.result.DeleteResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -16,7 +15,7 @@ import java.util.List;
  */
 @Component
 @Slf4j
-public class MongoLinkMapper implements LinkMapper {
+public class MongoLinkMapper implements ILinkMapper {
 
 
     @Resource

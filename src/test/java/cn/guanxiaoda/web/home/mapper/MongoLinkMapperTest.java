@@ -1,5 +1,6 @@
 package cn.guanxiaoda.web.home.mapper;
 
+import cn.guanxiaoda.web.home.BaseTest;
 import cn.guanxiaoda.web.home.HomeApplication;
 import cn.guanxiaoda.web.home.model.LinkModel;
 import org.junit.Test;
@@ -15,9 +16,8 @@ import java.util.List;
  * @date 2019-01-31
  */
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = HomeApplication.class)
-public class MongoLinkMapperTest {
+
+public class MongoLinkMapperTest extends BaseTest {
 
     @Autowired private MongoLinkMapper mapper;
 

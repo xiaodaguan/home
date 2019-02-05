@@ -31,7 +31,7 @@ public class Index {
         // load
         Map<String, List<LinkModel>> models = service.selectAll();
         // set
-        map.addAttribute("subTitle", "欢迎！");
+        map.addAttribute("subTitle", "导航页");
         map.addAttribute("models", models);
         // return
         return "index";
@@ -51,5 +51,6 @@ public class Index {
         service.delete(title);
         return "redirect:/";
     }
+
 
 }
