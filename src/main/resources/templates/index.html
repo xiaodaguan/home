@@ -25,19 +25,24 @@
 
 <hr/>
 <br/>
-<!-- add -->
-<div>
-    <div th:fragment="main_content">
-        <form action="/addlink" method="post">
-            Name:<input type="text" name="title">&nbsp;
-            Url:<input type="text" name="url">&nbsp;
-            Tag:<input type="text" name="tag">&nbsp;
-            <input type="submit" value="添加">
-        </form>
 
+
+<footer class="page-footer font-small indigo">
+    <!-- add -->
+    <div class="container text-center text-md-left">
+        <div th:fragment="main_content">
+            <form action="/addlink" method="post">
+                Name:<input type="text" name="title">&nbsp;
+                Url:<input type="text" name="url">&nbsp;
+                Tag:<input type="text" name="tag">&nbsp;
+                <input type="submit" value="添加">
+            </form>
+
+        </div>
+        <!--<button onclick="this.open('/create')">增加一个</button>-->
     </div>
-    <!--<button onclick="this.open('/create')">增加一个</button>-->
-</div>
+</footer>
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
