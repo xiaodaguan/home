@@ -48,7 +48,7 @@ public class Index {
         // load
         Map<String, List<LinkModel>> models = service.selectAll();
         // set
-        map.addAttribute("subTitle", "导航页");
+        map.addAttribute("subTitle", "FAVORITES");
         map.addAttribute("models", models);
         // return
         return "index";

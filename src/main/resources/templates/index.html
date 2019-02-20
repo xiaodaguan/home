@@ -14,6 +14,17 @@
     <h2 th:text="${subTitle}"></h2>
 </div>
 
+<hr/>
+<!-- list -->
+<ul th:each="model : ${models}">
+    <h4 th:text="${model.getKey()}"></h4>
+    <li class="span3" th:each="link:${model.getValue()}">
+        <a th:href="${link.getUrl()}" th:text="${link.getTitle()}"/>&nbsp;&nbsp;&nbsp;&nbsp;<a th:href="@{'/delLink/'+${link.getTitle()}}">𝙓</a>
+    </li>
+</ul>
+
+<hr/>
+<br/>
 <!-- add -->
 <div>
     <div th:fragment="main_content">
@@ -27,16 +38,6 @@
     </div>
     <!--<button onclick="this.open('/create')">增加一个</button>-->
 </div>
-
-<!-- list -->
-<ul th:each="model : ${models}">
-    <h4 th:text="${model.getKey()}"></h4>
-    <li class="span3" th:each="link:${model.getValue()}">
-        <a th:href="${link.getUrl()}" th:text="${link.getTitle()}"/>&nbsp;&nbsp;&nbsp;&nbsp;<a th:href="@{'/delLink/'+${link.getTitle()}}">𝙓</a>
-    </li>
-</ul>
-
-
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
